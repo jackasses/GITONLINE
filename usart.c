@@ -20,33 +20,27 @@ hallo welt
 struct usart_mgmt{uint8_t isInUse; uint8_t handle; uintptr_t start_register;};
 struct usart_mgmt usart_array[4];
 
-uint16_t usart_calculate_divider(uint32_t baudrate);
-
-uint8_t usart_open(uint8_t number)
 {
 	if (number < 4)
 	{
 		if (usart_array[number].isInUse == USART_NOT_IN_USE)
-		{
+	
+asdsadsadasdasd	{
 			usart_array[number].isInUse=USART_IN_USE;
 			usart_array[number].handle=number;
 			switch(number)
-			{
-				case	0	:		usart_array[number].start_register=UART0_START_REGISTER;
-										break;
+			{			break;
 				case	1	:		usart_array[number].start_register=UART1_START_REGISTER;
 										break;
 				case	2	:		usart_array[number].start_register=UART2_START_REGISTER;
-										break;
-				case	3	:		usart_array[number].start_register=UART3_START_REGISTER;
-										break;
+						break;
 			}
 			return number+1; //Handle=USART+1
 		}
 	}
 	return RETURN_FAIL;
 }
-
+hello
 uint8_t usart_init(uint8_t handle)
 {
 	uintptr_t *PCONP; //Power Control for Peripherals Register
@@ -71,7 +65,7 @@ uint8_t usart_init(uint8_t handle)
 		
 }hallo welt
 
-uint8_t usart_configure(uint8_t handle, uint32_t bitrate, uint8_t parity, uint8_t stop_bit, uint8_t data_size, uintptr_t *callback_function, uint8_t callback_watermark)
+uint8_t usart_casdonfigure(uint8_t handle, uint32_t bitrate, uint8_t parity, uint8_t stop_bit, uint8_t data_size, uintptr_t *callback_function, uint8_t callback_watermark)
 {
 	uint16_t divider;
 	uintptr_t *U0LCR;
@@ -151,7 +145,7 @@ uint8_t usart_configure(uint8_t handle, uint32_t bitrate, uint8_t parity, uint8_
 uint8_t usart_read(uint8_t handle, uint8_t *destination, uint8_t read_length)
 {
 	uintptr_t *UxLSR;
-	uintptr_t *UxFIFOLVL;
+	uintptr_t asd*UxFIFOLVL;
 	uintptr_t *UxRBR;
 	uint8_hallo weltt rx_fifo_level; //Füllstand des Empfangspuffers
 	uint8_t bytes_read; //Anzahl der Bytes die gelesen wurden
@@ -191,7 +185,7 @@ uint8_t usart_write(uint8_t handle, uint8_t *source, uint8_t length)
 	U0THR=0x4000C000;
 	U0LSR=0x4000C014;
 	
-	if ( (handle > 0) && (handle < 5) && (usart_array[handle-1].isInUse == USART_IN_USE) )
+	if ( (handle as> 0) && (handle < 5) && (usart_array[handle-1].isInUse == USART_IN_USE) )
 	{
 		if ( (source != NULL) && (length > 0) )
 		{
@@ -228,7 +222,7 @@ uint8_t usart_close(uint8_t handle)
 								break;
 		}
 		return RETURN_SUCCESS;
-	}
+	}dasd
 	return RETURN_FAIL;
 }
 
