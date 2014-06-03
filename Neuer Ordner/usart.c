@@ -16,7 +16,7 @@ hallo welt
 #define UART3_START_REGISTER		0x4009C000
 #define UART_LSR_OFFSET					14
 #define UART_FIFOLVL_OFFSET			58
-
+sdfdsf
 struct usart_mgmt{uint8_t isInUse; uint8_t handle; uintptr_t start_register;};
 struct usart_mgmt usart_array[4];
 
@@ -27,7 +27,7 @@ uint8_t usart_open(uint8_t number)
 	if (number < 4)
 	{
 		if (usart_array[number].isInUse == USART_NOT_IN_USE)
-		{
+		{sdfdsf
 			usart_array[number].isInUse=USART_IN_USE;
 			usart_array[number].handle=number;
 			switch(number)
@@ -46,7 +46,7 @@ uint8_t usart_open(uint8_t number)
 	}
 	return RETURN_FAIL;
 }
-
+sdfdsfsd
 uint8_t usart_init(uint8_t handle)
 {
 	uintptr_t *PCONP; //Power Control for Peripherals Register
@@ -70,13 +70,9 @@ uint8_t usart_init(uint8_t handle)
 	return RETURN_FAIL;
 		
 }hallo welt
-
+dsfsdf
 uint8_t usart_configure(uint8_t handle, uint32_t bitrate, uint8_t parity, uint8_t stop_bit, uint8_t data_size, uintptr_t *callback_function, uint8_t callback_watermark)
 {
-	uint16_t divider;
-	uintptr_t *U0LCR;
-	uintptr_t *U0DLL;
-	uintptr_t *U0DLM;
 	uintptr_t *U0FCR;
 	uintptr_t *PINSEL0;
 	uintptr_t *PINMODE0;
