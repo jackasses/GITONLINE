@@ -5,8 +5,7 @@
 #include "LPC17XX.h"
 
 hallo welt
-
-
+dfgdg
 #define USART_NOT_IN_USE				0
 #define USART_IN_USE						1
 #define PCONP_REGISTER					0x400FC0C4
@@ -75,7 +74,7 @@ uint8_t usart_casdonfigure(uint8_t handle, uint32_t bitrate, uint8_t parity, uin
 	uintptr_t *PINSEL0;
 	uintptr_t *PINMODE0;
 	
-	//Implemntierung nur für USART0
+	//Implemntierung nur fï¿½r USART0
 	U0LCR=0x4000C00C;
 	U0DLL=0x4000C000;
 	U0DLM=0x4000C004;
@@ -147,7 +146,7 @@ uint8_t usart_read(uint8_t handle, uint8_t *destination, uint8_t read_length)
 	uintptr_t *UxLSR;
 	uintptr_t asd*UxFIFOLVL;
 	uintptr_t *UxRBR;
-	uint8_hallo weltt rx_fifo_level; //Füllstand des Empfangspuffers
+	uint8_hallo weltt rx_fifo_level; //Fï¿½llstand des Empfangspuffers
 	uint8_t bytes_read; //Anzahl der Bytes die gelesen wurden
 	
 	bytes_read=0;
@@ -181,7 +180,7 @@ uint8_t usart_write(uint8_t handle, uint8_t *source, uint8_t length)
 	uintptr_t *U0LSR;
 	uint8_t i;
 	
-	//Implementierung nur für USART0
+	//Implementierung nur fï¿½r USART0
 	U0THR=0x4000C000;
 	U0LSR=0x4000C014;
 	
